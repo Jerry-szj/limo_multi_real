@@ -1,0 +1,22 @@
+<launch>
+<!-- +参数设置+ -->
+	<!-- 是否开启键盘控制 true / false-->
+	<arg name="keyboard" value="true"/>
+<!-- +参数设置+ -->
+
+<!-- 键盘控制 -->
+	<group if="$(arg keyboard)">
+		<node pkg="limo_multi" type="turtlebot_teleop_key.py" name="turtlebot_teleop_keyboard" output="screen">
+			<param name="scale_linear" value="0.5" type="double"/>
+			<param name="scale_angular" value="1.5" type="double"/>
+			<remap from="cmd_vel" to="cmd_vel"/>
+		</node>
+	</group>
+<!-- 键盘控制 -->
+
+<!-- 主车发送位置与速度信息 -->
+	<node name="send_tfodom" pkg="limo_multi" type="send_tfodom_real.py" output="screen">
+	</node>
+<!-- 主车发送位置与速度信息 -->
+
+</launch>

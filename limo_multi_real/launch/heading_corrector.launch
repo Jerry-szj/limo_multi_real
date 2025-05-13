@@ -1,0 +1,8 @@
+<launch>
+    <!-- 启动车头方向校正节点 -->
+    <node pkg="limo_multi" type="heading_corrector.py" name="heading_corrector" output="screen">
+        <param name="correction_factor" value="1.2" />
+        <param name="angle_threshold" value="0.05" />
+        <remap from="cmd_vel_corrected" to="cmd_vel" />
+    </node>
+</launch>

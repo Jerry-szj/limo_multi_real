@@ -1,0 +1,8 @@
+
+<launch>
+
+	 <!-- 分享主车位置与速度信息给其他车辆-->
+  	<node pkg="limo_multi" type="send_tfodom.py" name="send_tfodom" output="screen" >
+  	</node>
+
+</launch>

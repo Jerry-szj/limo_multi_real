@@ -1,0 +1,14 @@
+<launch>
+    <!-- 定义参数 -->
+    <arg name="slave_x" default="-0.3"/>
+    <arg name="slave_y" default="0.3"/>
+    
+    <!-- 启动从车初始位置校正节点 -->
+    <node pkg="limo_multi" type="initial_pose_calibrator.py" name="initial_pose_calibrator" output="screen">
+        <param name="slave_x" value="$(arg slave_x)" />
+        <param name="slave_y" value="$(arg slave_y)" />
+        <param name="calibration_timeout" value="10.0" />
+        <param name="calibration_distance" value="0.1" />
+        <param name="calibration_angle" value="0.1" />
+    </node>
+</launch>
